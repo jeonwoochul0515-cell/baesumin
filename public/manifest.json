@@ -1,0 +1,16 @@
+{
+  "name": "배수민 법률사무소",
+  "short_name": "배수민 법률사무소",
+  "description": "부산 연제구 배수민 변호사 - 여성폭력피해자 지원, 형사, 행정, 소방재난 전문",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a2e4a",
+  "theme_color": "#1a2e4a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
