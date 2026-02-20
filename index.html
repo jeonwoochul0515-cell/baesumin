@@ -18,7 +18,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#1a2e4a">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="배수민 법률사무소">
 
@@ -946,7 +946,10 @@
                 <p class="text-gray-500 mt-4">간단한 사안 내용을 남겨주시면 빠르게 연락드리겠습니다</p>
             </div>
 
-            <form id="inquiryForm" class="bg-white rounded-xl p-8 shadow-lg fade-in" onsubmit="submitForm(event)">
+            <form id="inquiryForm" class="bg-white rounded-xl p-8 shadow-lg fade-in" action="https://formsubmit.co/baesumin.law@gmail.com" method="POST" onsubmit="submitForm(event)">
+                <input type="hidden" name="_subject" value="배수민 법률사무소 홈페이지 문의">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://baesumin.pages.dev/?submitted=true">
                 <div class="grid md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-navy mb-1">성함 <span class="text-red-500">*</span></label>
@@ -1054,18 +1057,18 @@
                 <div>
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg min-h-[400px]">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.5!2d129.075!3d35.175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z67aA7IKw6rSR7Jet7IucIOyXsOygnOq1rCDrspXsm5Drgrjroow1NeuynOq4uCAxMA!5e0!3m2!1sko!2skr!4v1"
+                            src="https://www.google.com/maps?q=35.1905895,129.0737616&z=17&output=embed"
                             width="100%" height="400" style="border:0;"
                             allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                     <div class="flex gap-3 mt-4">
-                        <a href="https://map.naver.com/p/search/부산광역시 연제구 법원남로15번길 10" target="_blank" rel="noopener"
+                        <a href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%97%B0%EC%A0%9C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%82%A8%EB%A1%9C15%EB%B2%88%EA%B8%B8%2010" target="_blank" rel="noopener"
                            class="flex-1 bg-green-500 text-white text-center py-3 rounded-lg text-sm font-medium hover:bg-green-600 transition-colors">
                             <i class="fas fa-map mr-1"></i> 네이버 지도
                         </a>
-                        <a href="https://map.kakao.com/?q=부산광역시 연제구 법원남로15번길 10" target="_blank" rel="noopener"
+                        <a href="https://map.kakao.com/?q=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%97%B0%EC%A0%9C%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%82%A8%EB%A1%9C15%EB%B2%88%EA%B8%B8%2010" target="_blank" rel="noopener"
                            class="flex-1 bg-yellow-400 text-gray-900 text-center py-3 rounded-lg text-sm font-medium hover:bg-yellow-500 transition-colors">
                             <i class="fas fa-map-marker-alt mr-1"></i> 카카오맵
                         </a>
@@ -1188,11 +1191,33 @@
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> 전송 중...';
 
-            // Simulate submission (실제 서비스 연동 시 교체)
-            setTimeout(() => {
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+            }).then(res => {
+                if (res.ok) {
+                    form.style.display = 'none';
+                    success.classList.remove('hidden');
+                } else {
+                    alert('전송에 실패했습니다. 전화(010-4405-7751)로 문의해주세요.');
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> 문의 보내기';
+                }
+            }).catch(() => {
+                alert('전송에 실패했습니다. 전화(010-4405-7751)로 문의해주세요.');
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> 문의 보내기';
+            });
+        }
+
+        // URL 파라미터로 제출 완료 확인
+        if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
+            const form = document.getElementById('inquiryForm');
+            const success = document.getElementById('formSuccess');
+            if (form && success) {
                 form.style.display = 'none';
                 success.classList.remove('hidden');
-            }, 1000);
+            }
         }
 
         const sections = document.querySelectorAll('section[id]');
