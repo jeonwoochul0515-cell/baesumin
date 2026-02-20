@@ -11,6 +11,15 @@
     <meta property="og:title" content="배수민 변호사 | 배수민 법률사무소">
     <meta property="og:description" content="부산 연제구 소재 배수민 법률사무소 - 여성폭력피해자 지원, 형사, 행정, 소방재난 전문">
     <meta property="og:locale" content="ko_KR">
+    <meta property="og:url" content="https://baesumin.pages.dev">
+    <meta property="og:image" content="https://baesumin.pages.dev/images/profile-v2.jpg">
+    <meta property="og:image:width" content="671">
+    <meta property="og:image:height" content="1000">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="배수민 변호사 | 배수민 법률사무소">
+    <meta name="twitter:description" content="부산 연제구 소재 배수민 법률사무소 - 여성폭력피해자 지원, 형사, 행정, 소방재난 전문">
+    <meta name="twitter:image" content="https://baesumin.pages.dev/images/profile-v2.jpg">
+    <link rel="canonical" href="https://baesumin.pages.dev/">
 
     <title>배수민 변호사 | 배수민 법률사무소</title>
 
@@ -32,26 +41,43 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl0APPfKCt0jE4bDSiriztUoF9+z98soiQPy1cSPJHSkeM+jJv7cWGer6s7v+Kw2t+Y88WMGKoR5OA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LegalService",
         "name": "배수민 법률사무소",
-        "description": "부산 연제구 소재 배수민 법률사무소 - 배수민 변호사",
+        "description": "부산 연제구 소재 배수민 법률사무소 - 여성폭력피해자 지원, 형사, 행정, 소방재난 전문 변호사",
+        "url": "https://baesumin.pages.dev",
+        "image": "https://baesumin.pages.dev/images/profile-v2.jpg",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "법원남로15번길 10, 202호",
             "addressRegion": "부산광역시",
             "addressLocality": "연제구",
+            "postalCode": "47590",
             "addressCountry": "KR"
         },
-        "telephone": "010-714-1515",
+        "telephone": "+82-10-714-1515",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": "부산광역시"
+        },
         "employee": {
             "@type": "Person",
             "name": "배수민",
-            "jobTitle": "변호사"
+            "jobTitle": "변호사",
+            "alumniOf": [
+                {"@type": "CollegeOrUniversity", "name": "동아대학교 법학전문대학원"},
+                {"@type": "CollegeOrUniversity", "name": "한양대학교"}
+            ]
         }
     }
     </script>
@@ -160,7 +186,6 @@
             opacity: 0; visibility: hidden; transition: all 0.3s ease;
         }
         #backToTop.visible { opacity: 1; visibility: visible; }
-        #kakaoBtn { bottom: 80px; right: 24px; background: #FEE500; color: #3C1E1E; }
         #phoneBtn { bottom: 20px; right: 24px; background: var(--gold); }
 
         .nav-link { position: relative; transition: color 0.3s ease; }
@@ -223,7 +248,7 @@
                         <i class="fas fa-phone mr-1"></i> 상담 예약
                     </a>
                 </div>
-                <button id="menuToggle" class="md:hidden text-gray-700 text-xl" onclick="toggleMobileMenu()">
+                <button id="menuToggle" class="md:hidden text-gray-700 text-xl" onclick="toggleMobileMenu()" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -235,7 +260,7 @@
         <div class="p-6">
             <div class="flex justify-between items-center mb-8">
                 <span class="text-navy font-bold text-lg">배수민 법률사무소</span>
-                <button onclick="toggleMobileMenu()" class="text-gray-500 text-xl"><i class="fas fa-times"></i></button>
+                <button onclick="toggleMobileMenu()" class="text-gray-500 text-xl" aria-label="메뉴 닫기"><i class="fas fa-times" aria-hidden="true"></i></button>
             </div>
             <div class="flex flex-col space-y-6">
                 <a href="#about" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-navy transition-colors">변호사 소개</a>
@@ -1018,19 +1043,26 @@
                     <textarea name="message" required rows="5" placeholder="상담 받고 싶은 내용을 간략히 적어주세요."
                               class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors resize-none"></textarea>
                 </div>
+                <div class="mb-4">
+                    <label class="flex items-start space-x-2 cursor-pointer">
+                        <input type="checkbox" required class="mt-1 accent-gold">
+                        <span class="text-sm text-gray-600">상담 목적의 개인정보 수집 및 이용에 동의합니다. (필수)</span>
+                    </label>
+                </div>
                 <button type="submit" id="submitBtn"
                         class="w-full bg-navy hover:bg-opacity-90 text-white py-4 rounded-lg font-medium transition-colors">
-                    <i class="fas fa-paper-plane mr-2"></i> 문의 보내기
+                    <i class="fas fa-paper-plane mr-2" aria-hidden="true"></i> 문의 보내기
                 </button>
-                <div id="formSuccess" class="hidden mt-4 text-center p-4 bg-green-50 rounded-lg">
-                    <i class="fas fa-check-circle text-green-500 text-2xl mb-2"></i>
-                    <p class="text-green-700 font-medium">문의가 접수되었습니다.</p>
-                    <p class="text-green-600 text-sm">빠른 시일 내 연락드리겠습니다.</p>
-                </div>
                 <p class="text-gray-400 text-xs mt-4 text-center">
                     제출하신 정보는 상담 목적으로만 사용되며, 비밀이 보장됩니다.
                 </p>
             </form>
+            <div id="formSuccess" class="hidden mt-4 text-center p-6 bg-green-50 rounded-xl">
+                <i class="fas fa-check-circle text-green-500 text-3xl mb-3" aria-hidden="true"></i>
+                <p class="text-green-700 font-medium text-lg">문의가 접수되었습니다.</p>
+                <p class="text-green-600 text-sm mt-1">빠른 시일 내 연락드리겠습니다.</p>
+                <button onclick="document.getElementById('inquiryForm').style.display='';document.getElementById('inquiryForm').reset();document.getElementById('formSuccess').classList.add('hidden');document.getElementById('submitBtn').disabled=false;document.getElementById('submitBtn').innerHTML='<i class=\'fas fa-paper-plane mr-2\'></i> 문의 보내기';" class="mt-4 text-navy underline text-sm">새 문의하기</button>
+            </div>
         </div>
     </section>
 
@@ -1099,7 +1131,8 @@
                             src="https://www.google.com/maps?q=35.1905895,129.0737616&z=17&output=embed"
                             width="100%" height="400" style="border:0;"
                             allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="배수민 법률사무소 위치 지도">
                         </iframe>
                     </div>
                     <div class="flex gap-3 mt-4">
@@ -1147,7 +1180,7 @@
 
             <div class="border-t border-gray-700 pt-8 text-center">
                 <p class="text-gray-500 text-xs">
-                    &copy; 2024 배수민 법률사무소. All rights reserved.
+                    &copy; <script>document.write(new Date().getFullYear())</script> 배수민 법률사무소. All rights reserved.
                 </p>
                 <p class="text-gray-600 text-xs mt-2">
                     본 웹사이트는 법률사무소의 일반적인 정보를 제공하며, 법률 자문을 구성하지 않습니다.
@@ -1157,14 +1190,11 @@
     </footer>
 
     <!-- Floating Buttons -->
-    <button id="backToTop" class="floating-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <button id="backToTop" class="floating-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="페이지 상단으로 이동">
         <i class="fas fa-arrow-up"></i>
     </button>
-    <a id="kakaoBtn" href="https://open.kakao.com/o/s00000" target="_blank" rel="noopener" class="floating-btn" title="카카오톡 상담">
-        <i class="fas fa-comment"></i>
-    </a>
-    <a id="phoneBtn" href="tel:0107141515" class="floating-btn" title="전화 상담">
-        <i class="fas fa-phone"></i>
+    <a id="phoneBtn" href="tel:0107141515" class="floating-btn" title="전화 상담" aria-label="전화 상담 010-714-1515">
+        <i class="fas fa-phone" aria-hidden="true"></i>
     </a>
 
     <!-- Google Analytics (등록 후 실제 ID로 교체) -->
@@ -1178,29 +1208,64 @@
 
     <!-- JavaScript -->
     <script>
+        // #11 페이지 로더 - 지연 축소
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('pageLoader').classList.add('hidden');
-            }, 800);
+            document.getElementById('pageLoader').classList.add('hidden');
         });
 
+        // 모바일 메뉴 토글 (#4 접근성 aria-expanded 포함)
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('menuOverlay');
+            const toggle = document.getElementById('menuToggle');
             menu.classList.toggle('open');
             overlay.classList.toggle('hidden');
-            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+            const isOpen = menu.classList.contains('open');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            if (toggle) {
+                toggle.setAttribute('aria-expanded', isOpen);
+                toggle.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+            }
         }
 
-        window.addEventListener('scroll', () => {
-            const btn = document.getElementById('backToTop');
-            if (window.scrollY > 500) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
+        // #10 ESC 키로 모바일 메뉴 닫기
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const menu = document.getElementById('mobileMenu');
+                if (menu && menu.classList.contains('open')) {
+                    toggleMobileMenu();
+                }
             }
         });
 
+        // #9 스크롤 핸들러 통합 (하나의 리스너로 최적화)
+        const sections = document.querySelectorAll('section[id]');
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    // 맨 위로 버튼
+                    document.getElementById('backToTop').classList.toggle('visible', scrollY > 500);
+                    // 네비게이션 그림자
+                    document.getElementById('navbar').classList.toggle('shadow-md', scrollY > 100);
+                    // 활성 네비게이션 링크
+                    let current = '';
+                    sections.forEach(section => {
+                        if (scrollY >= section.offsetTop - 100) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Fade-in 애니메이션
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1208,19 +1273,9 @@
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('shadow-md');
-            } else {
-                navbar.classList.remove('shadow-md');
-            }
-        });
-
-        // Form submission
+        // 문의 폼 전송
         function submitForm(e) {
             e.preventDefault();
             const form = e.target;
@@ -1258,23 +1313,6 @@
                 success.classList.remove('hidden');
             }
         }
-
-        const sections = document.querySelectorAll('section[id]');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
     </script>
 </body>
 </html>
