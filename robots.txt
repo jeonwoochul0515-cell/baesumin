@@ -1,4 +1,22 @@
 User-agent: *
 Allow: /
 
+# 네이버 검색로봇
+User-agent: Yeti
+Allow: /
+
+# AI 검색/응답 크롤러 (인용 노출용)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+
 Sitemap: https://baesumin.com/sitemap.xml
