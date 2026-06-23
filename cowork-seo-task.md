@@ -16,6 +16,15 @@
 
 ---
 
+## ✅ 터미널에서 이미 완료한 항목 (커밋 45a68a5)
+- [x] **A. robots.txt** — Yeti·AI 검색봇(OAI-SearchBot/ChatGPT-User/PerplexityBot/Claude) 명시 허용
+- [x] **C(일부). geo 좌표** — LegalService에 GeoCoordinates 추가 (sameAs는 채널 URL 받아야 함 → 미완)
+- [x] **D. FAQ 섹션(#faq) + FAQPage JSON-LD** — 5개 Q&A 1:1 동기화, 내비 링크 추가
+- [x] **E. dateModified** — LegalService에 2026-06-23
+- [x] **H. 이미지 alt** — 프로필 img alt 보유, 나머지는 CSS 배경(해당없음). 추가 작업 불필요
+
+## ⬜ Cowork에서 할 남은 항목 (사용자 입력 필요)
+
 ## 작업 체크리스트 (위→아래 순서, 각 항목 verify 포함)
 
 ### A. robots.txt 강화 — AI 검색/RAG 봇 + Yeti 명시
